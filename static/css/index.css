@@ -1,0 +1,19 @@
+body {
+    font-family: "Microsoft YaHei" !important;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+footer {
+    text-align: center;
+}
+footer p {
+    height: 80px;
+    line-height: 80px;
+}
+button.btn, input[type="submit"].btn {
+    margin-right: 10px;
+}
+.container-fluid {
+    width: 1200px;
+    margin: 0 auto;
+}

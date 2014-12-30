@@ -1,0 +1,275 @@
+
+body {
+	background: #D2C3CE url(../images/ios7.jpg) no-repeat left top fixed;
+	background-size: cover;
+	
+}
+
+.header {
+	background-color: rgba(0, 0, 0, 0.25);
+	padding: 10px;
+	color: #fff;
+}
+
+.header h2 {
+	padding: 0 6px 5px;
+	margin: 0;
+}
+
+.footer {
+	background-color: rgba(0, 0, 0, 0.15);
+	padding: 10px;
+	color: #fff;
+}
+
+.left-nav {
+	background-color: rgba(0, 0, 0, 0.20);
+	color: #FFF;
+	display: table-cell;
+	float: none!important;
+	width: 200px;
+	vertical-align: top;
+}
+
+.page-content {
+	color: #FFF;
+	padding: 20px 30px;
+	display: table-cell;
+	float: none!important;
+}
+
+.wrapper {
+	display: table;
+	width: 100%;
+}
+div.jqplot-table-legend-swatch{
+		width:10px !important;
+		height:10px !important;
+}
+.jqplot-xaxis{
+
+}
+
+
+.b-b {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bottom-nav {
+	width: 100%;
+	border-top: 1px solid rgba(168, 154, 154, 0.5);
+}
+
+
+.container {
+	max-width: none !important;
+	padding: 0;
+}
+
+/*side-nav css start*/
+
+
+#side-nav * {
+	overflow-x: hidden;
+	overflow-y: visible;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#side-nav ul#nav {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+
+#side-nav ul#nav > li.current > a {
+	border: none;
+}
+
+#side-nav ul#nav > li.current > a > .arrow {
+	right: -3px !important;
+}
+
+#side-nav ul#nav li {
+	border-bottom: 1px solid rgba(197, 182, 186, 0.15)
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#side-nav ul#nav li:last-child, #side-nav ul#nav li.open, #side-nav ul#nav li.open-default, #side-nav ul#nav li.open-fixed {
+	border-bottom: 0 none;
+}
+
+#side-nav ul#nav li.current > ul {
+	display: block;
+}
+
+#side-nav ul#nav li.current .label.pull-right {
+	margin-right: 10px;
+}
+
+#side-nav ul#nav li.open-default > ul, #side-nav ul#nav li.open-fixed > ul {
+	display: block;
+}
+
+#side-nav ul#nav li .label {
+	padding: 5px 8px;
+	text-shadow: none;
+}
+
+#side-nav ul#nav li .label.pull-right {
+	margin-right: 20px;
+	position: absolute;
+	right: 15px;
+}
+
+#side-nav ul#nav li .arrow {
+	line-height: 20px;
+	position: absolute;
+	right: 5px;
+}
+
+#side-nav ul#nav li a {
+	border: 0 none;
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	font-weight: 200;
+	margin: 0;
+	padding: 15px 15px 15px 20px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#side-nav ul#nav li a:hover {
+	background-color: rgba(0, 0, 0, 0.30);
+}
+
+#side-nav ul#nav li a:active {
+	background-color: rgba(0, 0, 0, 0.30);
+}
+
+#side-nav ul#nav li a i {
+	color: #fff;
+	float: left;
+	line-height: 20px;
+	padding-right: 10px;
+}
+
+#side-nav ul#nav > li.current, #side-nav ul#nav > .open {
+	background-color: rgba(0, 0, 0, 0.30);
+}
+
+#side-nav ul#nav ul.sub-menu {
+	background-color: rgba(0, 0, 0, 0.30);
+	border-bottom: 1px solid rgba(225, 225, 225, 0.2);
+	clear: both;
+	display: none;
+	font-size: 13px;
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+
+#side-nav ul#nav ul.sub-menu a {
+	font-weight: normal;
+	padding: 12px 15px 12px 20px;
+	text-transform: none;
+}
+
+#side-nav ul#nav ul.sub-menu a:hover {
+	background-color: rgba(0, 0, 0, 0.20);
+}
+
+#side-nav ul#nav ul.sub-menu a:active {
+	background-color: rgba(0, 0, 0, 0.30);
+}
+
+#side-nav ul#nav ul.sub-menu li.current {
+	background-color: rgba(0, 0, 0, 0.20);
+}
+
+#side-nav ul#nav ul.sub-menu li:first-child > a {
+}
+
+#side-nav ul#nav ul.sub-menu ul.sub-menu {
+	border: 0 none;
+	box-shadow: none;
+	margin: 5px 0 5px 40px;
+}
+
+#side-nav ul#nav ul.sub-menu ul.sub-menu > li {
+	border-bottom: 0 none;
+	border-left: 1px solid #D1D1D1;
+}
+
+#side-nav ul#nav ul.sub-menu ul.sub-menu > li a {
+	color: #6F6F6F;
+	font-size: 12px;
+	padding: 7px 15px;
+}
+
+#side-nav ul#nav ul.sub-menu ul.sub-menu > li a:hover {
+	background-color: rgba(0, 0, 0, 0.30);
+}
+
+#side-nav ul#nav ul.sub-menu ul.sub-menu > li a:active {
+	background-color: rgba(0, 0, 0, 0.30);
+}
+
+#side-nav ul#nav ul.sub-menu ul.sub-menu li:first-child > a {
+	box-shadow: none;
+}
+
+/*side-nav css end*/
+
+.search{ 
+	background-color: rgba(0, 0, 0, 0.25);
+	display:block;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	color: #fff;
+	min-height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin-top:7px;
+}
+
+.opened {
+	display: block!important;
+}
+.widget-404 {
+	margin: auto;
+	width: 100%;
+	color: #fff;
+}
+
+.widget-404 h1 {
+	color: #FFFFFF;
+	font-size: 140px;
+	font-weight: 300;
+	line-height: 140px;
+	margin: 0;
+	text-rendering: optimizelegibility;
+}
+
+.widget-404 p {
+	color: #fff;
+}
+
+.widget-404 .description {
+	padding-top: 5px;
+	vertical-align: middle;
+}
+
+.widget-404-search, .widget-404 {
+	width: 600px;
+}
+
+.widget-404-search {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
