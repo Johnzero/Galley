@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
+        <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
         <title><?php echo $this->config->item('site_title'); ?></title>
-        <link rel="stylesheet" href="/static/css/index.css">
+        <link rel="shortcut icon" href="/static/images/favicon.ico">
         <link rel="stylesheet" href="/static/css/bootstrap.css" />
         <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
-        <link rel="shortcut icon" href="/static/images/favicon.ico">
+        <link rel="stylesheet" href="/static/index/css/index.css">
         <link href="/static/home/css/font-awesome.css" rel="stylesheet" media="screen" />
+        <link href="/static/index/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
         <script type="text/javascript" src="/static/js/jquery.js"></script>
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        
         <!--[if lt IE 9]>
         <script src="/static/js/html5shiv.js"></script>
         <script src="/static/js/respond.min.js"></script>
+        <link href="/static/index/css/ie.css" type="text/css" rel="stylesheet"/>
         <![endif]-->
-        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
+
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
@@ -25,18 +31,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="<?php echo site_url('index'); ?>">
+                    <!-- <a class="brand" href="<?php echo site_url('index'); ?>">
                         <?php echo $this->config->item('site_title'); ?>
-                    </a>
+                    </a> -->
                     <div class="nav-collapse">
 
                         <p class="navbar-text pull-right">
                             <i class="icon-phone"></i> 400-84084-842 &nbsp;&nbsp;
                             <?php if ($this->session->userdata('name')) { ?>
-                            <i class="icon-male"></i>&nbsp;&nbsp;<?php echo $this->session->userdata('name'); ?>&nbsp;&nbsp;
-                            <a href="<?php echo site_url("auth/logout"); ?>">登出</a> &nbsp;&nbsp;
+                            <i class="icon-male"></i>&nbsp;&nbsp;<a href="<?php echo site_url("home"); ?>" ><?php echo $this->session->userdata('name'); ?> </a> &nbsp;&nbsp;
+
+                            <i class="icon-signout"></i>&nbsp;<a href="<?php echo site_url("auth/logout"); ?>">登出</a> &nbsp;&nbsp;
                             <?php }else { ?>
-                            
+
                             <i class="icon-signin"></i>&nbsp;<a href="<?php echo site_url("auth"); ?>">登陆</a> &nbsp;&nbsp;
 
                             <i class="icon-user"></i>&nbsp;<a href="<?php echo site_url("auth/reg"); ?>">注册</a> &nbsp;&nbsp;

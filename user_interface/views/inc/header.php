@@ -38,15 +38,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-          <a class="brand" href="<?php echo site_url('home'); ?>"><?php echo $this->config->item('site_title'); ?></a>
+          <a class="brand" href="<?php echo site_url('index'); ?>"><?php echo $this->config->item('site_title'); ?></a>
           <div class="nav-collapse">
             <ul class="nav">
+
+                <li<?php if ($this->uri->segment(1) == "home") echo ' class="active"'; ?>><a href="<?php echo site_url("home"); ?>">&nbsp;&nbsp;全部图片&nbsp;&nbsp;</a></li>
+
                 <li<?php if ($this->uri->segment(1) == "album") echo ' class="active"'; ?>><a href="<?php echo site_url("album"); ?>">&nbsp;&nbsp;个人相册&nbsp;&nbsp;</a></li>
                 <!-- <li<?php if ($this->uri->segment(1) == "feed") echo ' class="active"'; ?>><a href="<?php echo site_url("feed"); ?>">Feeds</a></li> -->
                 <li<?php if ($this->uri->segment(1) == "user") echo ' class="active"'; ?>><a href="<?php echo site_url("user"); ?>">&nbsp;&nbsp;用户中心&nbsp;&nbsp;</a></li>
                 <li<?php if ($this->uri->segment(1) == "search") echo ' class="active"'; ?>><a href="<?php echo site_url("search"); ?>">&nbsp;&nbsp;详细搜索&nbsp;&nbsp;</a></li>
             </ul>
-            <p class="navbar-text pull-right"><i class="icon-male"></i>&nbsp;&nbsp;<?php echo $this->session->userdata('name'); ?>&nbsp;&nbsp;<a href="<?php echo site_url("auth/logout"); ?>">登出</a></p>
+            <p class="navbar-text pull-right">
+
+            <i class="icon-phone"></i> 400-84084-842 &nbsp;&nbsp;
+
+            <i class="icon-male"></i>&nbsp;&nbsp;<?php echo $this->session->userdata('name'); ?>&nbsp;&nbsp;
+            
+            <i class="icon-signout"></i>&nbsp;<a href="<?php echo site_url("auth/logout"); ?>">登出</a>
+
+            </p>
           </div><!--/.nav-collapse -->
         </div>
     </div>
