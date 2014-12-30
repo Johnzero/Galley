@@ -17,3 +17,10 @@ button.btn, input[type="submit"].btn {
     width: 1200px;
     margin: 0 auto;
 }
+.navbar a {
+    color: #777777;
+}
+.navbar a:hover{
+    text-decoration: none;
+    color: #0088cc;
+}

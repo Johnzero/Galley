@@ -29,7 +29,20 @@
                         <?php echo $this->config->item('site_title'); ?>
                     </a>
                     <div class="nav-collapse">
-                        <p class="navbar-text pull-right"><i class="icon-male"></i>&nbsp;&nbsp;<?php echo $this->session->userdata('name'); ?>&nbsp;&nbsp;<a href="<?php echo site_url("auth/logout"); ?>">登出</a></p>
+
+                        <p class="navbar-text pull-right">
+                            <i class="icon-phone"></i> 400-84084-842 &nbsp;&nbsp;
+                            <?php if ($this->session->userdata('name')) { ?>
+                            <i class="icon-male"></i>&nbsp;&nbsp;<?php echo $this->session->userdata('name'); ?>&nbsp;&nbsp;
+                            <a href="<?php echo site_url("auth/logout"); ?>">登出</a> &nbsp;&nbsp;
+                            <?php }else { ?>
+                            
+                            <i class="icon-signin"></i>&nbsp;<a href="<?php echo site_url("auth"); ?>">登陆</a> &nbsp;&nbsp;
+
+                            <i class="icon-user"></i>&nbsp;<a href="<?php echo site_url("auth/reg"); ?>">注册</a> &nbsp;&nbsp;
+
+                            <?php }?>
+                        </p>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
