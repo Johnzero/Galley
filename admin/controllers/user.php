@@ -23,6 +23,7 @@ class User extends MY_Controller{
 	}
 	//ajax 获取数据
 	private function ajax_data(){
+
 		$this->load->library("common_page");
 		$page = $this->input->get_post("page");	
 		if($page <=0 ){
@@ -31,49 +32,54 @@ class User extends MY_Controller{
 		$per_page = 10;//每一页显示的数量
 		$limit = ($page-1)*$per_page;
 		$limit.=",{$per_page}";
-		$where = ' where 1= 1 ';
-		$username = daddslashes(html_escape(strip_tags(trim($this->input->get_post("username",true))))) ;
+		// $where = ' where 1= 1 ';
+		// $username = daddslashes(html_escape(strip_tags(trim($this->input->get_post("username",true))))) ;
 		
-		if(!empty($username)){
-			$condition = intval($this->input->get_post("condition"));
-			$condition  = in_array($condition,array(1,2))?$condition:1;
-			$array_condition_search  = array(
-				1=>" LIKE '%{$username}%'", //模糊搜索
-				2=>"= '{$username}'"
-			);
-			$where.=" AND username {$array_condition_search[$condition]}";
-		}
-		$status = $this->input->get_post("status");	
-		if(in_array($status,array('1','0',true))){
-			$where.=" AND `status` = '{$status}'"; 
-		}
-		$sql_count = "SELECT COUNT(*) AS tt FROM {$this->table_}common_user {$where}";
+		// if(!empty($username)){
+		// 	$condition = intval($this->input->get_post("condition"));
+		// 	$condition  = in_array($condition,array(1,2))?$condition:1;
+		// 	$array_condition_search  = array(
+		// 		1=>" LIKE '%{$username}%'", //模糊搜索
+		// 		2=>"= '{$username}'"
+		// 	);
+		// 	$where.=" AND username {$array_condition_search[$condition]}";
+		// }
+
+		// $status = $this->input->get_post("status");	
+		// if(in_array($status,array('1','0',true))){
+		// 	$where.=" AND `status` = '{$status}'"; 
+		// }
+		
+		$sql_count = "SELECT COUNT(*) AS tt FROM {$this->table_}user";
 		$total  = $this->M_common->query_count($sql_count);
 		$page_string = $this->common_page->page_string($total, $per_page, $page);
-		$sql_role = "SELECT * FROM {$this->table_}common_user {$where} order by uid desc   limit  {$limit}";	
+		$sql_role = "SELECT * FROM {$this->table_}user order by id asc  limit {$limit}";	
 		$list = $this->M_common->querylist($sql_role);
+
 		foreach($list as $k=>$v){
-			$list[$k]['status'] = ($v['status'] == 1 )?"开启":'<font color="red">关闭</font>';			
-			$list[$k]['regdate'] = date("Y-m-d H:i:s",$v['regdate']);
-			$list[$k]['expire'] = ($v['expire'] == 0 )?'<font color="green">永不过期</font>':date("Y-m-d H:i:s",$v['expire']);
+			$list[$k]['is_active'] = ($v['is_active'] == 1 )?"激活":'未激活';			
+			// $list[$k]['created_at'] = date("Y-m-d H:i:s",$v['created_at']);
+			// $list[$k]['expire'] = ($v['expire'] == 0 )?'<font color="green">永不过期</font>':date("Y-m-d H:i:s",$v['expire']);
 		}
 		echo result_to_towf_new($list, 1, '成功', $page_string) ;
 	}
 	//编辑页面
 	function edit(){
+
+		$this->load->helper('form');
 		$action = $this->input->get_post("action");		
 		$action_array = array("edit","doedit");
 		$action = !in_array($action,$action_array)?'edit':$action ;		
 		if($action == 'edit'){
 			$id = verify_id($this->input->get_post("id"));
-			$sql_user = "SELECT * FROM {$this->table_}common_user WHERE uid = '{$id}'";
+			$sql_user = "SELECT * FROM {$this->table_}user WHERE id = '{$id}'";
 			$info = $this->M_common->query_one($sql_user);
 			if(empty($info)){
 				showmessage("暂无数据","user/index",3,0);
 				exit();
 			}		
 			$data = array(
-				'info'=>$info
+				'user'=>$info
 			);
 			$this->load->view(__TEMPLET_FOLDER__."/views_user_edit",$data);		
 		}elseif($action == 'doedit'){
@@ -83,38 +89,25 @@ class User extends MY_Controller{
 	}
 	//处理编辑数据
 	private function doedit(){
-		$username = dowith_sql(daddslashes(html_escape(strip_tags($this->input->get_post("username")))));//username
-		$passwd = dowith_sql(daddslashes(html_escape(strip_tags($this->input->get_post("passwd")))));//passwd
-		$status = verify_id($this->input->get_post("status")); //状态	
-		$id = verify_id($this->input->get_post("id")); //id
-		$expire = $this->input->get_post("expire"); //过期日期
-		$set = '' ;
-		if(!empty($username)){
-			$set.=",`username` = '{$username}'";
-		}
-		if(!empty($passwd)){
-			if(utf8_str($passwd) != 1 ){
-				showmessage("密码必须是英文","user/edit",3,0,"?id={$id}");
-				exit();
-			}
-			$passwd = md5($passwd);
-			$set.=",`passwd`= '{$passwd}'";
-		}
-		
-		if($expire != '0'  && strripos($expire,"-") !== FALSE ){
-			$expire = strtotime($expire);
-		}else{
-			$expire = 0 ;
-		}			
-		$sql_edit = "UPDATE `{$this->table_}common_user` SET `expire` = '{$expire}' {$set} ,`status` = '{$status}' where uid = '{$id}'";
+		$now = date('Y-m-d H:i:s');
+      	$user_data = array(
+                   'email_address' => $this->input->post('email_address'), 
+                   'name' => $this->input->post('name'), 
+                   'tel' => $this->input->post('tel'), 
+                   'address' => $this->input->post('address'), 
+                   'is_active' => $this->input->post('is_active'),
+                   'is_admin' => $this->input->post('is_admin'),
+                   'created_at' => $now,
+                   'updated_at' => $now);
+
+		$sql_edit = "UPDATE `{$this->table_}user` SET `is_active` = '{$this->input->post('is_active')}'  where id = '{$this->input->post('id')}'";
 		$num = $this->M_common->update_data($sql_edit);
 		if($num>=1){
-			//
-			write_action_log($sql_edit,$this->uri->uri_string(),login_name(),get_client_ip(),1,"修改用户为{$username}成功");
+			write_action_log($sql_edit,$this->uri->uri_string(),login_name(),get_client_ip(),1,"修改用户成功");
 			header("Location:".site_url("user/index/"));
 		}else{
-			write_action_log($sql_edit,$this->uri->uri_string(),login_name(),get_client_ip(),0,"修改用户{$username}失败");
-			showmessage("服务器繁忙，或者你没有修改任何数据","user/edit",3,0,"?id={$id}");
+			write_action_log($sql_edit,$this->uri->uri_string(),login_name(),get_client_ip(),0,"修改用户失败");
+			showmessage("服务器繁忙，或者你没有修改任何数据","user/edit",3,0,"?id={$this->input->post('id')}");
 			die();
 		}
 	}

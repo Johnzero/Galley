@@ -1,52 +1,14 @@
-`<?php
+<?php
 
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
-/**
- * Copyright (c) 2012, Aaron Benson - GalleryCMS - http://www.gallerycms.com
- * 
- * GalleryCMS is a free software application built on the CodeIgniter framework. 
- * The GalleryCMS application is licensed under the MIT License.
- * The CodeIgniter framework is licensed separately.
- * The CodeIgniter framework license is packaged in this application (license.txt) 
- * or read http://codeigniter.com/user_guide/license.html
- * 
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- * 
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- * 
- */
 class Auth extends MY_Controller
 {
 
   public function __construct()
   {
     parent::__construct();
-    // This app has run for the first time, install.
-    // if ( ! $this->db->table_exists('user'))
-    // {
-    //   redirect('install');
-    //   return;
-    // }
-    
     $this->load->model('user_model');
   }
   
@@ -58,43 +20,54 @@ class Auth extends MY_Controller
     $this->load->helper('form');
     
     $data = array();
+
     $data['email'] = '';
-    $this->load->view('auth/index', $data);
-    
+
+    if ( $this->session->flashdata('flash_message') ) {
+        $data['login_error'] = $this->session->flashdata('flash_message');
+    }
+
     if ($this->_is_logged_in() == TRUE)
     {
       redirect('home');
     }
+
+    $this->load->view('auth/index', $data);
+
   }
   
-  /**
-   * Process user authentication.
-   */
-  public function authenticate()
-  {
-    // Authenticate user.
-    $this->load->helper('form');
-    $userData = array('email_address' => $this->input->post('email_address'), 'password' => $this->input->post('password'));
-    $user_id = $this->user_model->authenticate($userData);
-    if ($user_id > 0)
+    /**
+    * Process user authentication.
+    */
+    public function authenticate()
     {
-      // Create session var
-      $user = $this->user_model->find_by_id($user_id);
-      $this->create_login_session($user);
-
-      $this->session->set_flashdata('flash_message', '登陆成功！');
-
-      redirect('home');
+        // Authenticate user.
+        $this->load->helper('form');
+        $userData = array('email_address' => $this->input->post('email_address'), 'password' => $this->input->post('password'));
+        $user_id = $this->user_model->authenticate($userData);
+        if ($user_id > 0)
+        {
+            // Create session var
+            $user = $this->user_model->find_by_id($user_id);
+            if ( $user->is_active != 1 ) {
+                $data = array();
+                $data['login_error'] = '账号未审核，请联系管理员进行审核！';
+                $data['email'] = $this->input->post('email_address');
+                $this->load->view('auth/index', $data);
+            }else {
+                $this->create_login_session($user);
+                $this->session->set_flashdata('flash_message', '登陆成功！');
+                redirect('home');
+            }
+        }
+        else
+        {
+            $data = array();
+            $data['login_error'] = '账户或密码错误！';
+            $data['email'] = $this->input->post('email_address');
+            $this->load->view('auth/index', $data);
+        }
     }
-    else
-    {
-      $data = array();
-      $data['login_error'] = '账户或密码错误！';
-      $data['email'] = $this->input->post('email_address');
-      
-      $this->load->view('auth/index', $data);
-    }
-  }
 
     /**
     * Process user reg.
@@ -125,21 +98,21 @@ class Auth extends MY_Controller
                 // Success, create user & redirect
                 $now = date('Y-m-d H:i:s');
                 $user_data = array(
-                   'email_address'   => $this->input->post('email_address'), 
-                   'password'        => $this->input->post('password'),
-                   'name' => trim($this->input->post('name')), 
-                   'tel' => trim($this->input->post('tel')), 
-                   'address' => trim($this->input->post('address')), 
-                   'is_active'       => 1,
-                   'created_at'      => $now,
-                   'uuid'            => $this->create_uuid(),
-                   'updated_at'      => $now
+                    'email_address'   => $this->input->post('email_address'), 
+                    'password'        => $this->input->post('password'),
+                    'name' => trim($this->input->post('name')), 
+                    'tel' => trim($this->input->post('tel')), 
+                    'address' => trim($this->input->post('address')), 
+                    'is_active'       => 0,
+                    'created_at'      => $now,
+                    'uuid'            => $this->create_uuid(),
+                    'updated_at'      => $now
                 );
                 $id = $this->user_model->create($user_data);
                 $user = $this->user_model->find_by_id($id);
                 if ($id) {
-                    $this->create_login_session($user);
-                    redirect('home');
+                    $this->session->set_flashdata('flash_message', '注册成功！请联系管理员进行审核！');
+                    redirect('auth');
                 }
 
             }

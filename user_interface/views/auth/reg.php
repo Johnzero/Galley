@@ -18,35 +18,33 @@
     <?php
         echo form_open('auth/reg');
 
-        if (isset($login_error)) {
-
+        if ( isset($login_error) ) {
             echo '<div class="alert alert-error"><strong>' . $login_error . '</strong></div>';
-
         }
 
         echo form_error('email_address');
         echo form_label('邮箱地址', 'email_address');
-        echo form_input('email_address');
+        echo form_input( array('name' => 'email_address', 'value'=>set_value('email_address')) );
 
         echo form_error('name');
         echo form_label('姓名 <span class="red">*</span>', 'name');
-        echo form_input(array('name' => 'name', 'id' => 'name'));
+        echo form_input( array('name' => 'name', 'id' => 'name', 'value'=>set_value('name') ) );
 
         echo form_error('tel');
         echo form_label('联系方式 <span class="red">*</span>', 'tel');
-        echo form_input(array('name' => 'tel', 'id' => 'tel'));
+        echo form_input( array('name' => 'tel', 'value'=>set_value('tel')) );
 
         echo form_error('address');
         echo form_label('单位（或通讯地址）<span class="red">*</span>', 'address');
-        echo form_input(array('name' => 'address', 'id' => 'address'));
+        echo form_input( array('name' => 'address', 'value'=>set_value('address')) );
 
         echo form_error('password');
         echo form_label('密码 <span class="red">*</span>', 'password');
-        echo form_password('password');
+        echo form_password( array('name' => 'password') );
 
         echo form_error('password_conf');
         echo form_label('重新键入密码 <span class="red">*</span>', 'password_conf');
-        echo form_password('password_conf');
+        echo form_password( array('name' => 'password_conf') );
 
         echo form_fieldset_close();
 

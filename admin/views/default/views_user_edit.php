@@ -42,36 +42,42 @@ if (! defined('BASEPATH')) {
 </div>
 <form action="<?php echo site_url("user/edit");?>" method="post" name="">
 <input type="hidden" name="action" value="doedit">
-<input type="hidden" name="id" value="<?php echo $info['uid'];?>">
+<input type="hidden" name="id" value="<?php echo $user['id'];?>">
 <table class="table table-bordered table-hover m10">
-    <tr>
-        <td class="tableleft">用户名：</td>
-        <td><input type="text" name="username"  value="<?php echo $info['username'];?>" id="username" required="true" errMsg="请输入用户名，必须在3-16位数" tip="请输入用户名，必须在3-16位数"/></td>
-    </tr>
-    <tr>
-        <td class="tableleft">密码</td>
-        <td><input type="text" name="passwd" id="passwd" />备注：如果密码不为空将进行修改密码</td>
-    </tr> 	
-    <tr>
-        <td class="tableleft">过期日期</td>
-        <td><input type="text" name="expire" id="expire" value="<?php echo ($info['expire'] == 0 )?'0':date("Y-m-d H:i:s",$info['expire']);?>"/>备注：其中0为不过期</td>
-    </tr> 	
-    <tr>
-        <td class="tableleft">状态：</td>
-        <td>
-			<input type="radio" checked="" value="1" name="status" <?php if($info['status'] == 1 ){echo "checked";}?>>
-		启用
-		<input type="radio" value="0" name="status" <?php if($info['status'] == 0 ){echo "checked";}?>>
-		禁用 
-		</td>
-    </tr>	  
-	
-    <tr>
-        <td class="tableleft"></td>
-        <td>
-		<input type="submit" value="提&nbsp;交" class="btn btn-primary">
-		</td>
-    </tr>	
+    <?php
+    echo form_fieldset('用户信息');
+
+    echo form_label('邮箱地址 <span class="red">*</span>', 'email_address');
+    echo form_input(array('name' => 'email_address', 'id' => 'email_address', 'value' => $user['email_address']));
+    echo form_error('email_address');
+
+    echo form_label('密码 (留空则不修改)', 'password');
+    echo form_password('password');
+    echo form_error('password');
+
+    echo form_label('再输一遍', 'password_conf');
+    echo form_password('password_conf');
+    echo form_error('password_conf');
+
+    echo form_label('姓名 <span class="red">*</span>', 'name');
+    echo form_input(array('name' => 'name', 'id' => 'name', 'value' => $user['name']));
+    echo form_error('name');
+
+    echo form_label('联系方式 <span class="red">*</span>', 'tel');
+    echo form_input(array('name' => 'tel', 'id' => 'tel', 'value' => $user['tel']));
+    echo form_error('tel');
+
+    echo form_label('单位（或通讯地址）', 'address');
+    echo form_input(array('name' => 'address', 'id' => 'address', 'value' => $user['address']));
+    echo form_error('address');
+
+    echo form_label('启用', 'is_active');
+    echo form_checkbox('is_active', '1', $user['is_active']);
+
+    echo form_fieldset_close(); 
+
+    echo form_button(array('id' => 'submit', 'value' => 'Update', 'name' => 'submit', 'type' => 'submit', 'content' => '更新','class' => 'btn btn-primary'));
+    ?>
 	  
 </table>
 </form>	   

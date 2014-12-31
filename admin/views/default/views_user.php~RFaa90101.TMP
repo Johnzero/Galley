@@ -58,11 +58,10 @@ if (! defined('BASEPATH')) {
     <tr>
         <th>Uid</th>
         <th>邮箱地址</th>
-        <th>姓名</th>
-        <th>单位</th>
 		<th>是否激活</th>
 		<th>创建时间</th>
 		<th>上次登录时间</th>
+		<th>相册数量</th>
 		<th>上次登录地址</th>
         <th>操作</th>
     </tr>
@@ -117,14 +116,11 @@ function common_request(page){
 				for(var i in list){
 					shtml+='<tr>';
 					shtml+='<td>'+list[i].id+'</td>';
-					shtml+='<td>'+list[i]['email_address']+'</td>';
 					shtml+='<td>'+list[i]['name']+'</td>';
-					shtml+='<td>'+list[i]['address']+'</td>';
-					shtml+='<td>'+list[i]['is_active']+'</td>';
-					shtml+='<td>'+list[i]['created_at']+'</td>';
-					shtml+='<td>'+list[i]['last_logged_in']+'</td>';
-					shtml+='<td>'+list[i]['last_ip']+'</td>';
-					shtml+='<td><a href="<?php echo site_url('user/edit');?>?id='+list[i].id+'" class="icon-edit" title="编辑'+list[i]['name']+'的基本信息"></a></td>';
+					shtml+='<td>'+list[i]['status']+'</td>';
+					shtml+='<td>'+list[i]['regdate']+'</td>';
+					shtml+='<td>'+list[i]['expire']+'</td>';
+					shtml+='<td><a href="<?php echo site_url('user/edit');?>?id='+list[i].uid+'" class="icon-edit" title="编辑'+list[i]['username']+'的基本信息"></a></td>';
 					shtml+='</tr>';
 				}
 				$("#result_").html(shtml);

@@ -18,11 +18,11 @@ if (isset($error)) {
   
   echo form_error('password');
   echo form_label('新密码', 'password');
-  echo form_password('password');
+  echo form_password( array('name' => 'password', 'value'=>set_value('password')) );
   
   echo form_error('password_conf');
   echo form_label('再输一次', 'password_conf');
-  echo form_password('password_conf');
+  echo form_password( array('name' => 'password_conf', 'value'=>set_value('password_conf')) );
   
   echo form_fieldset_close(); 
   

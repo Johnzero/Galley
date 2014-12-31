@@ -54,11 +54,11 @@
                                         </li>
                                         <li>
                                             <img src="/static/index/example/slider2.jpg" alt="photo" />
-                                            <h3><span>Fusce consequat eleifend diam </span><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</a></h3>
+                                            <h3><span>创意手上绘画迎新年 </span><a href="#">创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</a></h3>
                                         </li>
                                         <li>
                                             <img src="/static/index/example/slider3.jpg" alt="photo" />
-                                            <h3><span>Donec elementum tortor</span><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</a></h3>
+                                            <h3><span>创意手上绘画迎新年</span><a href="#">创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</a></h3>
                                         </li>
                                     </ul>
                                 </div>
@@ -77,10 +77,10 @@
                                     <div class="block-light">
                                         <a href="#"><img src="/static/index/example/latest1.jpg" alt="photo" /></a>
                                         <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">Lorem ipsum</a></h2>
+                                            <h2 class="post-title"><a href="#">绘画迎新年</a></h2>
                                             <a href="#" class="blog-comments">3</a>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
                                                 sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
                                                 <a href="#" class="read-more">[...]</a>
                                             </p>
@@ -93,10 +93,10 @@
                                     <div class="block-light">
                                         <a href="#"><img src="/static/index/example/latest2.jpg" alt="photo" /></a>
                                         <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">Lorem ipsum</a></h2>
+                                            <h2 class="post-title"><a href="#">创意手上绘画迎新年</a></h2>
                                             <a href="#" class="blog-comments">3</a>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
                                                 sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
                                                 <a href="#" class="read-more">[...]</a>
                                             </p>
@@ -109,10 +109,10 @@
                                     <div class="block-light">
                                         <a href="#"><img src="/static/index/example/latest3.jpg" alt="photo" /></a>
                                         <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">Lorem ipsum</a></h2>
+                                            <h2 class="post-title"><a href="#">创意手上绘画迎新年</a></h2>
                                             <a href="#" class="blog-comments">3</a>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
                                                 sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
                                                 <a href="#" class="read-more">[...]</a>
                                             </p>
@@ -125,10 +125,10 @@
                                     <div class="block-light">
                                         <a href="#"><img src="/static/index/example/latest5.jpg" alt="photo" /></a>
                                         <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">Lorem ipsum</a></h2>
+                                            <h2 class="post-title"><a href="#">创意手上绘画迎新年</a></h2>
                                             <a href="#" class="blog-comments">3</a>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
                                                 sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
                                                 <a href="#" class="read-more">[...]</a>
                                             </p>
@@ -215,11 +215,11 @@
                                 <div class="tab-pane" id="comments">
                                     <section class="recent-comments">
                                         <ul class="clearfix">
-                                            <li><a href="#">Admin</a> on <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                            <li><a href="#">ShmitAcc</a> on <a href="#">Lorem Ipsum Sed Ut</a></li>
-                                            <li><a href="#">Admin</a> on <a href="#">Lorem Ipsum Sed Ut</a></li>
-                                            <li><a href="#">Admin</a> on <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                            <li><a href="#">ShmitAcc</a> on <a href="#">Lorem Ipsum Sed Ut</a></li>
+                                            <li><a href="#">Admin</a> on <a href="#">创意手上绘画迎新年 dolor sit amet, consectetur adipiscing elit.</a></li>
+                                            <li><a href="#">ShmitAcc</a> on <a href="#">创意手上绘画迎新年 Sed Ut</a></li>
+                                            <li><a href="#">Admin</a> on <a href="#">创意手上绘画迎新年 Sed Ut</a></li>
+                                            <li><a href="#">Admin</a> on <a href="#">创意手上绘画迎新年 dolor sit amet, consectetur adipiscing elit.</a></li>
+                                            <li><a href="#">ShmitAcc</a> on <a href="#">创意手上绘画迎新年 Sed Ut</a></li>
                                         </ul>
                                     </section>
                                 </div>
@@ -350,7 +350,7 @@
                                 </div>
 
                                 <div class="short-text">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui
+                                    创意手上绘画迎新年 创意手上绘画迎新年创意手上绘画迎新年创意手上绘画迎新年创意手上绘画迎新年创意手上绘画迎新年创意手上绘画迎新年
                                 </div>
                             </div>
                         </div>
