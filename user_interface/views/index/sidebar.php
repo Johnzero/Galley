@@ -26,7 +26,7 @@
         <h3>最新文章</h3>
         <div class="divider-arrow"></div>
     </div>
-    <section class="block-grey">
+    <section class="block-grey sidebar">
         <!-- Tabs navigation -->
         <ul class="nav nav-tabs">
             <li class="active"><a href="#blog" data-toggle="tab">文章</a></li>
@@ -37,37 +37,22 @@
             <div class="tab-pane active" id="blog">
                 <section class="post-widget">
                     <ul class="clearfix">
-                        <li>
-                            <div class="avatar">
-                                <a href="#"><img src="/static/index/example/sidebar1.jpg" alt="photo" /></a>
-                            </div>
-                            <div class="description">
-                                <p><a href="#">Etiam sagittis purus quis neque pharetra pretium tempor</a></p>
-                                <span class="date"><em>12 Apr 2012, 3 comments</em></span>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="avatar">
-                                <a href="#"><img src="/static/index/example/sidebar2.jpg" alt="photo" /></a>
-                            </div>
-                            <div class="description">
-                                <p><a href="#">Maecenas malesuada convallis varius. Duis nec luctus leo nam venenatis</a></p>
-                                <span class="date"><em>12 Apr 2012, 3 comments</em></span>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="avatar">
-                                <a href="#"><img src="/static/index/example/sidebar3.jpg" alt="photo" /></a>
-                            </div>
-                            <div class="description">
-                                <p><a href="#">Donec feugiat luctus sem malesuada sodales praesent rutrum enim eget</a></p>
-                                <span class="date"><em>12 Apr 2012, 3 comments</em></span>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-                    </ul>
+                        <?php if (isset($hot_news)): ?>
+                        <?php foreach ($hot_news as $key => $new): ?>
+                            <li>
+                                <div class="avatar">
+                                    <a href="<?php echo site_url("index/single/{$new->id}"); ?>"><img src="/static/admin/news/<?php echo $new->image;?>" alt="photo" /></a>
+                                </div>
+                                <div class="description">
+                                    <p><a href="<?php echo site_url("index/single/{$new->id}"); ?>"><?php echo $new->title; ?></a></p>
+                                    <span class="date"><em><?php echo date(' Y 年 m 月 d', strtotime($new->create_date)); ?>，<?php echo $new->addperson;?></em></span>
+                                </div>
+                                <div class="clear"></div>
+                            </li>
+                            <?php if ($key>1) break;?>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                     </ul>
                 </section>
             </div>
             <div class="tab-pane" id="comments">

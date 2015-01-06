@@ -92,10 +92,8 @@ if (! defined('BASEPATH')) {
          	<?php 
          		if(isset($category) && $category ){
          			foreach($category as $c_key=>$c_v){
-         				$disabled = '' ;
-         				$disabled = ($c_v['type'] != 2)?'disabled style="background:lightgray"':'';
          	?>
-         	<option value="<?php echo $c_v['id'] ; ?>" <?php if($c_v['id'] == $info['type']){echo "selected";}?>   <?php echo $disabled ;?>><?php echo $c_v['html'];?><?php echo $c_v['typename']  ; ?></option>
+         	<option value="<?php echo $c_v->id ; ?>" <?php if($c_v->id == $info['type']){echo "selected";}?>  ><?php echo $c_v->typename  ; ?></option>
          	<?php 
          					
          		}
@@ -104,10 +102,10 @@ if (! defined('BASEPATH')) {
          </select>
         </td>
     </tr> 	
-    <tr>
+    <!-- <tr>
         <td width="10%" class="tableleft">url</td>
          <td><input type="text" name="url" placeholder="url"  value="<?php echo $info['url'];?>" style="width:300px"/></td>
-    </tr>
+    </tr> -->
      
      <tr>
         <td width="10%" class="tableleft">关键词</td>
@@ -115,12 +113,12 @@ if (! defined('BASEPATH')) {
       <input type="text" name="keysword" placeholder="请用逗号分开" value="<?php echo $info['keysword'];?>" style="width:300px" />
        </td>
     </tr> 
-      <!-- <tr>
-        <td width="10%" class="tableleft">介绍</td>
+      <tr>
+        <td width="10%" class="tableleft">摘要</td>
         <td>      
-		<textarea style="width:100%; height:150px" name="introduce" placeholder="介绍"><?php echo $info['introduce'];?></textarea>
+		<textarea style="width:100%; height:150px" name="introduce" placeholder="摘要"><?php echo $info['introduce'];?></textarea>
        </td>
-    </tr>  --> 
+    </tr>  
         
      <tr>
         <td class="tableleft">内容</td>

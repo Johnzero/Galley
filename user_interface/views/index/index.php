@@ -30,80 +30,33 @@
                             </div>
                         </div>
                         <!-- content -->
-                        <div class="row">
+                        <div class="row index-page">
                             <div class="span8">
                                 <div class="title-divider">
                                     <h3>精彩推荐</h3>
                                     <div class="divider-arrow"></div>
                                 </div>
                             </div>
+                            <?php if (isset($hot_news)): ?>
+                            <?php foreach ($hot_news as $new): ?>
                             <article class="blog-post span4">
                                 <div class="block-grey">
                                     <div class="block-light">
-                                        <a href="#"><img src="/static/index/example/latest1.jpg" alt="photo" /></a>
+                                        <a href="<?php echo site_url("index/single/{$new->id}"); ?>"><img src="/static/admin/news/<?php echo $new->image;?>" alt="photo" /></a>
                                         <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">绘画迎新年</a></h2>
-                                            <a href="#" class="blog-comments">3</a>
+                                            <h2 class="post-title"><a href="<?php echo site_url("index/single/{$new->id}"); ?>"><?php echo $new->title; ?></a></h2>
+                                            <a href="<?php echo site_url("index/single/{$new->id}#comments"); ?>" class="blog-comments">3</a>
                                             <p>
-                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
-                                                sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
-                                                <a href="#" class="read-more">[...]</a>
+                                                <?php echo $new->introduce;?>
+                                                <a href="<?php echo site_url("index/single/{$new->id}"); ?>" class="read-more">[...]</a>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </article>
-                            <article class="blog-post span4">
-                                <div class="block-grey">
-                                    <div class="block-light">
-                                        <a href="#"><img src="/static/index/example/latest2.jpg" alt="photo" /></a>
-                                        <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">创意手上绘画迎新年</a></h2>
-                                            <a href="#" class="blog-comments">3</a>
-                                            <p>
-                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
-                                                sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
-                                                <a href="#" class="read-more">[...]</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="blog-post span4">
-                                <div class="block-grey">
-                                    <div class="block-light">
-                                        <a href="#"><img src="/static/index/example/latest3.jpg" alt="photo" /></a>
-                                        <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">创意手上绘画迎新年</a></h2>
-                                            <a href="#" class="blog-comments">3</a>
-                                            <p>
-                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
-                                                sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
-                                                <a href="#" class="read-more">[...]</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="blog-post span4">
-                                <div class="block-grey">
-                                    <div class="block-light">
-                                        <a href="#"><img src="/static/index/example/latest5.jpg" alt="photo" /></a>
-                                        <div class="wrapper">
-                                            <h2 class="post-title"><a href="#">创意手上绘画迎新年</a></h2>
-                                            <a href="#" class="blog-comments">3</a>
-                                            <p>
-                                                创意手上绘画迎新年 dolor sit amet, consectetuer adipiscing elit,
-                                                sed diam nonummy nibh euismod tdolore mag quam erat volutpat.
-                                                <a href="#" class="read-more">[...]</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
-
-                        
                     </section>
                     
                     <?php $this->load->view('index/sidebar'); ?>

@@ -144,11 +144,8 @@ class News extends MY_Controller{
 		$action = !in_array($action,$action_array)?'add':$action ;	
 		if($action == 'add'){
 			
-
 			$this->load->model('M_news');			
-			
 			$result = $this->M_news->get_main_cats();//新闻类别
-
 			$data = array(
 				'from'=>$this->extra_news_from,
 				'category'=>$result,
@@ -234,9 +231,7 @@ class News extends MY_Controller{
 			}		
 			
 			$this->load->model('M_news');
-			$result = $this->M_news->make_option_data();		
-			//echo "<pre>";
-			//print_r($result);	
+			$result = $this->M_news->get_main_cats();
 			$data = array(
 					'info'=>$info_,	
 					'id'=>$id,

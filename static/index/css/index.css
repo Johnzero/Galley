@@ -550,6 +550,16 @@ section#slider {
     margin-bottom: 0;
 }
 .block-light .blog-comments {
+    padding-left: 20px;
+    background: url(../images/comments.png) no-repeat 0 5px;
+    font-weight: bold;
+}
+.single-comments {
+    padding-left: 20px;
+    background: url(../images/comments.png) no-repeat 0 5px;
+    font-weight: bold;
+}
+.span4 .blog-comments {
     position: absolute;
     top:20px;
     right: 15px;
@@ -1220,7 +1230,6 @@ article.span3 h4{
 .pagination li {
     list-style: none;
     float: left;
-    margin-right: 5px;
 }
 .pagination a{
     background-color: #fbfbfb;
@@ -1387,8 +1396,8 @@ article.span3 h4{
 .blog-post h2.post-title{margin-bottom: 10px;}
 .blog-post h2.post-title a{line-height: 25px}
 .blog-post img {
-    margin-bottom: 30px;
     display: block;
+    margin: 0 auto;
 }
 .blog-post .meta{
     margin-bottom: 15px;
@@ -1761,7 +1770,7 @@ blockquote p{
     display: block;
     text-align: left;
 }
-.video img {border-radius: 10px;margin-top: 10px;}
+.video img {border-radius: 10px;margin-top: 10px;border: solid 1px #cdcdcd;}
 
 .block-dark .video {
     margin-bottom: 0;
@@ -1876,4 +1885,13 @@ blockquote p{
     }
     #footer .submit-div {width:225px;}
 
+}
+
+.index-page .wrapper p {
+    height: 80px;
+    overflow: hidden;
+}
+.sidebar .avatar img{
+    width: 60px;
+    height: 60px;
 }

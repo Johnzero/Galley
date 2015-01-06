@@ -100,13 +100,12 @@ if (! defined('BASEPATH')) {
        <input type="text" name="keysword" placeholder="多个关键词请用逗号隔开" style="width:300px"/>
        </td>
     </tr> 
-      <!-- <tr>
-            <td width="10%" class="tableleft">介绍</td>
+       <tr>
+            <td width="10%" class="tableleft">摘要</td>
             <td>
-          
-           <textarea style="width:100%; height:150px" name="introduce" placeholder="介绍"></textarea>
-           </td>
-        </tr>   -->
+                <textarea style="width:100%; height:150px" name="introduce" placeholder="摘要"></textarea>
+            </td>
+        </tr>  
        <!-- <tr>
             <td width="10%" class="tableleft">权重</td>
             <td>
