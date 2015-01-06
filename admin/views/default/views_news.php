@@ -120,22 +120,24 @@ if (! defined('BASEPATH')) {
     </tr>
     </thead>
 	<tbody id="result_">
+
+
 	</tbody> 
 	<tr>
 		<td colspan="11">
-		全选<input type="checkbox" id="selAll" onclick="selectAll()">
-		反选:<input type="checkbox" id="inverse" onclick="inverse();">
+		全选：<input type="checkbox" id="selAll" onclick="selectAll()">
+		反选：<input type="checkbox" id="inverse" onclick="inverse();">
 			<button class="button button-small" type="button" onclick="del()">
 			<i class="icon-remove"></i>
 			删除
 			</button>
 			<button class="button button-small" type="button" onclick="change_status(0)">
 			<i class="icon-off"></i>
-			设为禁用
+			设为隐藏
 			</button>
 			<button class="button button-small" type="button" onclick="change_status(1)">
 			<i class="icon-eye-open"></i>
-			设为开启
+			设为显示
 			</button>
 		</td>
 	</tr>
@@ -190,14 +192,15 @@ function common_request(){
 						
 						shtml+='<tr>';
 						shtml+='<td width="20px"><input type="checkbox" name="checkAll[]" onclick="setSelectAll();" value="'+list[i]['id']+'"></td>';
-						shtml+='<td ><a href="#">'+list[i]['title']+'</a>'+list[i]['flag']+'</td>';				
+						// shtml+='<td ><a href="#">'+list[i]['title']+'</a>'+list[i]['flag']+'</td>';	
+						shtml+='<td ><a href="#">'+list[i]['title']+'</a></td>';				
 						shtml+='<td>'+list[i]['create_date']+'</td>';
 						shtml+='<td>'+list[i]['modify_date']+'</td>';
 						shtml+='<td>'+list[i]['status']+'</td>';
 						shtml+='<td>'+list[i]['addperson']+'</td>';
 						shtml+='<td>'+list[i]['typename']+'</td>';
 						shtml+='<td>'+list[i]['fromname']+'</td>';
-						shtml+='<td><a href="<?php echo site_url("news/edit") ; ?>?id='+list[i].id+'" class="icon-edit" title="编辑文章'+list[i]['title']+'"></a>&nbsp;&nbsp;<!--<a href="<?php echo site_url("news/index") ; ?>?id='+list[i].id+'&action=preview">查看</a>--></td>';
+						shtml+='<td><a href="<?php echo site_url("news/edit") ; ?>?id='+list[i].id+'" class="icon-edit" title="编辑文章"></a>&nbsp;&nbsp;<a href="<?php echo site_url("news/index") ; ?>?id='+list[i].id+'&action=preview">查看</a></td>';
 						shtml+='</tr>';
 					}
 					$("#result_").html(shtml);				

@@ -5,10 +5,10 @@ include __ROOT__."/include/config/common_config.php";  //加载公共的配置�
 |--------------------------------------------------------------------------
 |--------------------------------------------------------------------------
 | 后台cookie的周期
-| 默认1个小时的时间
+| 默认10个小时的时间
 |
 */
-$config['cookie_expire'] =  60*60 ; //
+$config['cookie_expire'] =  60*60*10 ;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,7 @@ $config['cookie_expire'] =  60*60 ; //
 | 
 |
 */
-$config['cookie_path'] = "/" ; //
+$config['cookie_path'] = "/" ;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ $config['cookie_path'] = "/" ; //
 | 
 |
 */
-$config['cookie_domain'] = "" ; //
+$config['cookie_domain'] = "" ;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ $config['cookie_domain'] = "" ; //
 | 
 |
 */
-$config['s_key'] = "phpspeak_" ; //
+$config['s_key'] = "phpspeak_" ;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,14 +43,14 @@ $config['s_key'] = "phpspeak_" ; //
 | 角色缓存文件的路径
 |
 */
-$config['role_cache'] = __ROOT__."/".APPPATH."/cache/role_cache/" ; //备注要确保role_cache文件夹存在
+$config['role_cache'] = __ROOT__.APPPATH."cache/role_cache/" ;
 /*
 |--------------------------------------------------------------------------
 |--------------------------------------------------------------------------
 | 系统环境的基本信息路径
 |
 */
-$config['sysconfig_cache'] = __ROOT__."/data/cache/sysconfig/" ; //备注要确保文件夹sysconfig存在
+$config['sysconfig_cache'] = __ROOT__."data/cache/sysconfig/";
 /*
 | 没有权限的时候返回的一个code值 写小于0的值
 */
@@ -101,60 +101,61 @@ $config['yzm_open'] = true ;
 /*
 | 验证码图片保存的路径
 */
-$config['yzm_path'] = __ROOT__.'/data/captcha/' ; 
+$config['yzm_path'] = __ROOT__.'data/captcha/' ; 
 /*
 | 联动模型的 缓存路径
 | 
 */
-$config['category_model_cache'] = __ROOT__."/data/cache/category/" ; ; //
+$config['category_model_cache'] = __ROOT__."data/cache/category/" ; 
 
 /*
 | 联动模型数据 缓存路径
 | 
 */
-$config['category_modeldata_cache'] = __ROOT__."/data/cache/category/" ; ; //
+$config['category_modeldata_cache'] = __ROOT__."data/cache/category/" ; 
 
 /*
 | 产品图片本地路径
 | 
 */
-$config['product_path'] = __ROOT__."/data/upload/product/" ; ; //
+$config['product_path'] = __ROOT__."static/admin/product/" ; 
 
 /*
 | 广告图片访问路径
 | 
 */
-$config['v_product_path'] = "/data/upload/product/" ; ; //
+$config['v_product_path'] = "static/admin/product/" ; 
 
+$config['upload_path'] = "static/admin/upload" ; 
 /*
 | 广告图片本地路径
 | 
 */
-$config['ad_path'] = __ROOT__."/data/upload/ad/" ; ; //
+$config['ad_path'] = __ROOT__."/static/admin/ad/" ; 
 
 /*
 | 广告图片访问路径
 | 
 */
-$config['v_ad_path'] = "/data/upload/ad/" ; ; //
+$config['v_ad_path'] = "/static/admin/ad/" ; 
 
 /*
 | 文章图片本地路径
 | 
 */
-$config['news_path'] = __ROOT__."/data/upload/news/" ; ; //
+$config['news_path'] = __ROOT__."/static/admin/news/" ; 
 
 /*
 | 广告图片访问路径
 | 
 */
-$config['v_news_path'] = "/data/upload/news/" ; ; //
+$config['v_news_path'] = "static/admin/news/" ; 
 
 /*
 | 超级管理员 ， 【这个主要是为了操作一些危险操作的】
 | 
 */
-$config['super_admin'] = array("zero") ;
+$config['super_admin'] = array("admin") ;
 
 /*
 | 用户的字段类型 配置
@@ -165,9 +166,7 @@ $config['field_type'] = array(
 	array('type'=>'char','info'=>'单行文本(char)'),
 	array('type'=>'int','info'=>'整数类型'),
 	array('type'=>'text','info'=>'多行文本 text类型'),
-	
 	array('type'=>'mediumtext','info'=>'HTML文本'),
-	
 	array('type'=>'float','info'=>'小数类型'),
 	array('type'=>'datetime','info'=>'时间类型'),
 	array('type'=>'enum','info'=>'enum 类型的数据'),

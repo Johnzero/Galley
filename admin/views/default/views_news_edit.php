@@ -79,7 +79,9 @@ if (! defined('BASEPATH')) {
         <td width="10%" class="tableleft">缩略图</td>
         <td>
         <input type="file" name="image" />
-		<div style="width:294px;height:100px;">	<img src="<?php echo $this->v_upload_path."/{$info['image']}"?>" width="294px" height="100px"  ></div>
+		<div style="width:294px;height:100px;">	
+        <img src="<?php echo $this->v_upload_path."/{$info['image']}"?>" height="100"  >
+        </div>
 		</td>
     </tr>		
      <tr>
@@ -99,7 +101,7 @@ if (! defined('BASEPATH')) {
          		}
          	}
          	?>
-         </select>备注:其中灰色的是无法发布文章的
+         </select>
         </td>
     </tr> 	
     <tr>
@@ -110,21 +112,16 @@ if (! defined('BASEPATH')) {
      <tr>
         <td width="10%" class="tableleft">关键词</td>
         <td>
-      <input type="text" name="keysword" placeholder="关键词" value="<?php echo $info['keysword'];?>" style="width:300px" />请用,号分开
+      <input type="text" name="keysword" placeholder="请用逗号分开" value="<?php echo $info['keysword'];?>" style="width:300px" />
        </td>
     </tr> 
-      <tr>
+      <!-- <tr>
         <td width="10%" class="tableleft">介绍</td>
         <td>      
 		<textarea style="width:100%; height:150px" name="introduce" placeholder="介绍"><?php echo $info['introduce'];?></textarea>
        </td>
-    </tr>  
-       <tr>
-        <td width="10%" class="tableleft">权重</td>
-        <td>
-       <input type="text" name="weight" placeholder="权重" value="<?php echo $info['weight'];?>" /> int类型
-       </td>
-    </tr>    
+    </tr>  --> 
+        
      <tr>
         <td class="tableleft">内容</td>
         <td>
@@ -161,20 +158,19 @@ if (! defined('BASEPATH')) {
     <tr>
         <td class="tableleft">点击数量</td>
         <td>
-           <input type="text" name="click" id="click" value="<?php echo $info['click'];?>"> 备注:整形数
+           <input type="text" name="click" id="click" value="<?php echo $info['click'];?>"> 
         </td>
     </tr> 
     <tr>
         <td class="tableleft">作者</td>
         <td>
-           <input type="text" name="addperson" id="addperson" value="<?php echo $info['addperson'];?>"> 备注：30个字符
-        </td>
+           <input type="text" name="addperson" id="addperson" value="<?php echo $info['addperson'];?>">
     </tr> 	
     <tr>
         <td class="tableleft">状态</td>
         <td>
-            <input type="radio" name="status" value="1" <?php if($info['status'] == 1 ){echo "checked";}?>/> 启用
-           <input type="radio" name="status" value="0"  <?php if($info['status'] == 0 ){echo "checked";}?>/> 禁用
+            <input type="radio" name="status" value="1" <?php if($info['status'] == 1 ){echo "checked";}?>/> 显示
+           <input type="radio" name="status" value="0"  <?php if($info['status'] == 0 ){echo "checked";}?>/> 隐藏
         </td>
     </tr>
     	

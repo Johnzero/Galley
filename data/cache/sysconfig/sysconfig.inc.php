@@ -2,7 +2,7 @@
 /*网站基本信息配置*/
 /*author wangjian*/
 /*time 2014_03_03*/
-$cdf_install ='kkk';
+$cdf_install ='';
 $cfg_cookie_encode ='UsSQu3494J';
 $cfg_tu ='125689';
 $cfg_isopen_huiyuan ='Y';

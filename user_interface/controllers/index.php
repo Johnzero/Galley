@@ -9,14 +9,9 @@ class Index extends CI_Controller {
         $this->load->model('home_model');
         $this->load->model('image_model');
 
-    }
-
-    public function index() {
-        $data = array();
-
+        $this->data = array();
         $cats = $this->home_model->get_cats();
         $cats = $this->object_array($cats);
-        
         foreach ($cats as $key => $value) {
             $sub_cat = $this->image_model->get_cats($value['id']);
             $sub_cat = $this->object_array($sub_cat);
@@ -26,13 +21,30 @@ class Index extends CI_Controller {
                 $cats[$key]["sub_cat"] = '';
             }
         }
-        $data['cats'] = $cats;
+        $this->data['cats'] = $cats;
+
+    }
+
+    public function index() {
+        $data = $this->data;
         $data['url'] = "index";
         $this->load->view('index/index', $data);
     }
 
+    public function sub($id) {
+        $data = $this->data;
+        if (!$id) {
+            redirect('index');
+        }
+        else {
+            $data['url'] = "{$id}";
+            $this_cat = $this->image_model->get_this_cat($id);
+            $data['this_cat'] = $this_cat;
+            $this->load->view('index/blog', $data);
+        }
+    }
+
     public function object_array($array) {  
-      
         if(is_object($array)) {  
             $array = (array)$array;  
         } if(is_array($array)) {  

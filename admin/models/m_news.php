@@ -17,6 +17,16 @@ class M_news extends M_common {
 		}		
 		return $list ;
 	}
+
+	public function get_main_cats()
+    {
+        $this->db->select("*")
+             ->from($this->db->table_pre.'extra_cat')
+             ->order_by("disorder", "asc")
+             ->where("pid", 0);
+        $q = $this->db->get();
+        return $q->result();
+    }
 	
 
 }

@@ -55,3 +55,38 @@
             </div>
         </div>
         <div class="container-fluid">
+
+            <!-- header -->
+            <header id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="span2 logo">
+                            <a href="<?php echo site_url('index'); ?>"><img src="/static/logo.png" alt="logo" /></a>
+                        </div>
+                        <div class="span10 hidden-phone pull-right" style="width: auto;">
+                            <nav id="menu">
+
+                                <ul class="clearfix">
+
+                                    <li <?php if ($url == "index" )  echo 'class="current"';?> >
+                                        <a href="<?php echo site_url('index'); ?>" <?php if ($url == "index" )  echo 'class="current"';?> >
+                                            首页
+                                        </a>
+                                    </li>
+                                    <?php foreach ($cats as $key => $value): ?>
+                                        <li <?php if ($url == $value['id'] )  echo 'class="current"';?> >
+                                            <a <?php if ($url == $value['id'] )  echo 'class="current"';?>  href="<?php echo site_url("index/sub/{$value['id']}"); ?>">
+                                                <?php echo $value['ico'];?>
+                                                <?php echo $value['typename'];?> 
+                                                <i class="arrow icon-angle-left"></i>
+                                            </a>
+                                        </li>
+                                    <?php endforeach ?>
+
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>

@@ -65,7 +65,11 @@ if (! defined('BASEPATH')) {
         <td width="10%" class="tableleft">缩略图</td>
         <td>
         <input type="file" name="image" />
-        <div style="width:294px;height:184px;"><img src="<?php echo base_url()."/".APPPATH; ?>/views/static/Images/icon_form_upload.png" width="294px" height="184px" /></div>
+        <div style="width:294px;height:184px;">
+
+        <img src="/static/images/icon_form_upload.png" width="294px" height="184px" />
+
+        </div>
         </td>
     </tr>	
      <tr>
@@ -76,43 +80,39 @@ if (! defined('BASEPATH')) {
          	<?php 
          		if(isset($category) && $category ){
          			foreach($category as $c_key=>$c_v){
-					$disabled = '' ;
-					$disabled = ($c_v['type'] != 2)?'disabled style="background:lightgray"':'';
-         		
          	?>
-         	<option value="<?php echo $c_v['id'] ; ?>" <?php echo $disabled ;?>><?php echo $c_v['html'];?><?php echo $c_v['typename']  ; ?></option>
+         	  <option value="<?php echo $c_v->id ; ?>" ><?php echo $c_v->typename;?></option>
          	<?php 
-         					
          		}
          	}
          	?>
-         </select>备注:其中灰色的是无法发布文章的
+         </select>
         </td>
     </tr> 	
-    <tr>
+    <!-- <tr>
         <td width="10%" class="tableleft">url</td>
         <td><input type="text" name="url" placeholder="url" style="width:300px"/></td>
-    </tr>
+    </tr> -->
      
      <tr>
         <td width="10%" class="tableleft">关键词</td>
         <td>
-       <input type="text" name="keysword" placeholder="关键词" style="width:300px"/>请用半角,号分隔
+       <input type="text" name="keysword" placeholder="多个关键词请用逗号隔开" style="width:300px"/>
        </td>
     </tr> 
-      <tr>
-        <td width="10%" class="tableleft">介绍</td>
-        <td>
-      
-       <textarea style="width:100%; height:150px" name="introduce" placeholder="介绍"></textarea>
-       </td>
-    </tr>  
-       <tr>
-        <td width="10%" class="tableleft">权重</td>
-        <td>
-       <input type="text" name="weight" placeholder="权重" value="0" style="width:300px"/> int类型
-       </td>
-    </tr>    
+      <!-- <tr>
+            <td width="10%" class="tableleft">介绍</td>
+            <td>
+          
+           <textarea style="width:100%; height:150px" name="introduce" placeholder="介绍"></textarea>
+           </td>
+        </tr>   -->
+       <!-- <tr>
+            <td width="10%" class="tableleft">权重</td>
+            <td>
+           <input type="text" name="weight" placeholder="权重" value="0" style="width:300px"/>
+           </td>
+        </tr>  -->   
      <tr>
         <td class="tableleft">内容</td>
         <td>
@@ -148,20 +148,20 @@ if (! defined('BASEPATH')) {
     <tr>
         <td class="tableleft">点击数量</td>
         <td>
-           <input type="text" name="click" id="click" value="10"> 备注:整形数
+           <input type="text" name="click" id="click" value="10">
         </td>
     </tr> 
     <tr>
         <td class="tableleft">作者</td>
         <td>
-           <input type="text" name="addperson" id="addperson" value="<?php echo $this->username;?>"> 备注：30个字符
+           <input type="text" name="addperson" id="addperson" value="<?php echo $this->username;?>">
         </td>
     </tr> 	
     <tr>
         <td class="tableleft">状态</td>
         <td>
-            <input type="radio" name="status" value="1" checked/> 启用
-           <input type="radio" name="status" value="0"/> 禁用
+            <input type="radio" name="status" value="1" checked/> 显示
+           <input type="radio" name="status" value="0"/> 隐藏
         </td>
     </tr>
     	

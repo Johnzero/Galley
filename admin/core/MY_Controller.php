@@ -1,10 +1,4 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/*
- * 让ci继承自己的类库 
- * ######################################
- * 这个类里面写权限代码
- *###################################
- */
 
 class MY_Controller extends CI_Controller{
 	public $username = '' ;//登录的用户名
@@ -57,7 +51,7 @@ class MY_Controller extends CI_Controller{
 				echo result_to_towf_new('',$this->config->item('no_permition'),"你的密码已经过期,重新登录",null);
 				die();
 			}
-			showmessage("密码已经过期",'admin/login/index',3,0);
+			showmessage("密码已经过期",'login/index',3,0);
 		}	
 
 	}

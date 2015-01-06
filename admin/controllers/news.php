@@ -29,18 +29,18 @@ class News extends MY_Controller{
 	public	$fromname = '';//来源名称
 	public	$create_date = '' ;//创建日期
 	public	$flag = '' ;//属性
-	public	$click = '' ;//点击数量
-	public	$publish_name = '' ;//发表人
+	public	$click = '10' ;//点击数量
+	public	$publish_name = '管理员' ;//发表人
 	function News(){
 		parent::__construct();
 		$this->load->model('M_common');
 		$this->cache_category_path =  config_item("category_modeldata_cache") ; 
-		$this->upload_path = __ROOT__."/data/upload/k/" ; ; // 编辑器上传的文件保存的位置
-		$this->upload_save_url = base_url()."/data/upload/k/"; //编辑器上传图片的访问的路径
+		$this->upload_path = config_item("upload_path") ; 
+		$this->upload_save_url = base_url().config_item("upload_path"); 
 		$this->get_news_from();
 		$this->news_attr = config_item("content_att") ;
-		$this->thum_upload_path = config_item("news_path");  //上传路径
-		$this->v_upload_path = base_url().config_item("v_news_path");  //访问路径
+		$this->thum_upload_path = config_item("news_path");  
+		$this->v_upload_path = base_url().config_item("v_news_path");  
 	}
 	function index(){
 		$action = $this->input->get_post("action");	
@@ -109,7 +109,7 @@ class News extends MY_Controller{
 		//$list = $this->category->format_category_data($list);
 		if($list){
 			foreach($list as $k=>$v){
-				$list[$k]['status'] = ($v['status'] == 1 )?"开启":'<font color="red">关闭</font>';
+				$list[$k]['status'] = ($v['status'] == 1 )?"显示":'<font color="red">隐藏</font>';
 				$list[$k]['introduce'] = msubstr($v['introduce'],0,20,abslength($v['introduce']));
 				$list[$k]['create_date'] = isset($v['create_date'])?date("Y-m-d H:i",$v['create_date']):'' ; 
 				$list[$k]['modify_date'] = isset($v['modify_date'])?date("Y-m-d H:i",$v['modify_date']):'' ; 
@@ -143,10 +143,12 @@ class News extends MY_Controller{
 		$action_array = array("add","doadd");
 		$action = !in_array($action,$action_array)?'add':$action ;	
 		if($action == 'add'){
+			
+
 			$this->load->model('M_news');			
-			$result = $this->M_news->make_option_data();//新闻类别
-			/* echo "<pre>";
-			print_r($result); */
+			
+			$result = $this->M_news->get_main_cats();//新闻类别
+
 			$data = array(
 				'from'=>$this->extra_news_from,
 				'category'=>$result,
